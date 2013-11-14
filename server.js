@@ -8,3 +8,7 @@ var app = connect()
 var backend = backboneio.createBackend();
 backend.use(backboneio.middleware.memoryStore());
 var io = backboneio.listen(app, {questionBackend: backend});
+io.configure(function () {
+	  io.set("transports", ["xhr-polling"]);
+	  io.set("polling duration", 10);
+	});
