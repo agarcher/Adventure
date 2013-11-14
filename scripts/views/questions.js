@@ -1,6 +1,7 @@
 App.Views.Questions = Backbone.View.extend({
  
    initialize: function() {
+	    App.currentUser.on("change", this.render, this);
         this.model.on("reset", this.render, this);
         this.model.on("add", this.renderItem, this);
    },
